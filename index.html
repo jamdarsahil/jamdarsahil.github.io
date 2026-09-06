@@ -137,11 +137,39 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Animated Subtitle */
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             color: var(--primary);
             font-weight: 600;
             margin-bottom: 1.2rem;
+            min-height: 2.2rem;
+            display: flex;
+            align-items: center;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2rem;
+            background-color: var(--primary);
+            margin-left: 4px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .fade-text {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+
+        .fade-text.hidden {
+            opacity: 0;
         }
 
         .hero-bio {
@@ -410,7 +438,6 @@
             font-family: 'Fira Code', monospace;
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
@@ -441,15 +468,32 @@
                 <div class="badge">
                     <span class="badge-dot"></span> Senior Software Engineer @ HSBC
                 </div>
-                <h1>Java Backend & IAM Architect</h1>
-                <div class="hero-subtitle">Spring Boot • Microservices • AWS • Ping Identity / ForgeRock</div>
+                <h1>Sahil Jamdar</h1>
+                
+                <!-- Animated Skills Subtitle -->
+                <div class="hero-subtitle">
+                    <span id="animated-text" class="fade-text"></span>
+                    <span class="typing-cursor"></span>
+                </div>
+
                 <p class="hero-bio">
                     3+ years of enterprise experience engineering resilient, high-volume identity flows, securing distributed architectures, and deploying cloud-native Spring Boot microservices.
                 </p>
+
+                <!-- CTA & Action Buttons -->
                 <div class="cta-group">
-                    <a href="mailto:jamdar.sahil26@gmail.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
-                    <a href="https://linkedin.com/in/jamdarsahil" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/jamdarsahil" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="Sahil_Resume.pdf" download="Sahil_Jamdar_Resume.pdf" class="btn btn-primary">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+                    </a>
+                    <a href="mailto:jamdar.sahil26@gmail.com" class="btn btn-secondary">
+                        <i class="fa-solid fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a href="https://linkedin.com/in/jamdarsahil" target="_blank" class="btn btn-secondary">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/jamdarsahil/" target="_blank" class="btn btn-secondary">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
                 </div>
             </div>
 
@@ -553,10 +597,10 @@
                         <div class="exp-company">HSBC</div>
                         <div class="exp-date">Dec 2022 – Present | Pune, India</div>
                         <ul class="exp-bullets">
-                            <li>Architected high-availability Spring Boot microservices with Spring Security & JPA.</li>
-                            <li>Engineered identity access journeys using ForgeRock OpenAM/OpenIDM, custom JavaScript nodes, and Metadata Callbacks.</li>
-                            <li>Implemented OAuth 2.0, OpenID Connect (OIDC), JWT verification, and secure session handshakes across C2B/B2B channels.</li>
-                            <li>Deployed microservices across Kubernetes clusters and AWS EC2 instances via Docker.</li>
+                            <li>Architected high-availability Spring Boot microservices with Spring Security & JPA[cite: 1].</li>
+                            <li>Engineered identity access journeys using ForgeRock OpenAM/OpenIDM, custom JavaScript nodes, and Metadata Callbacks[cite: 1].</li>
+                            <li>Implemented OAuth 2.0, OpenID Connect (OIDC), JWT verification, and secure session handshakes across C2B/B2B channels[cite: 1].</li>
+                            <li>Deployed microservices across Kubernetes clusters and AWS EC2 instances via Docker[cite: 1].</li>
                             <li>Optimized caching and state layers using Redis distributed session storage and Amazon DynamoDB[cite: 1].</li>
                             <li>Maintained production uptime via Splunk log analysis, AppDynamics monitoring, and Kubernetes debugging[cite: 1].</li>
                         </ul>
@@ -623,5 +667,49 @@
         <p>&lt;/&gt; Designed & Built by Sahil Jamdar • 2026</p>
     </footer>
 
+    <!-- Script for Skill Items Fade/Typing Animation -->
+    <script>
+        const items = [
+            "Java Backend Developer",
+            "Spring Boot",
+            "IAM",
+            "AWS",
+            "Kubernetes",
+            "Docker",
+            "Microservices & CI/CD"
+        ];
+
+        const textElement = document.getElementById("animated-text");
+        let itemIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentItem = items[itemIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentItem.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentItem.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentItem.length) {
+                typeSpeed = 1800; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                itemIndex = (itemIndex + 1) % items.length;
+                typeSpeed = 400; // Pause before typing next word
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
 </body>
 </html>
