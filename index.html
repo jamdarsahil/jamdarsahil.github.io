@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Jamdar | Java Backend & IAM Engineer</title>
-    <!-- FontAwesome & Google Fonts -->
+    <!-- FontAwesome & JetBrains Mono / Plus Jakarta Sans Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -26,7 +26,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -61,7 +61,7 @@
         }
 
         .logo {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary);
@@ -116,7 +116,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
         }
 
         .badge-dot {
@@ -146,7 +146,7 @@
             min-height: 2.2rem;
             display: flex;
             align-items: center;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
         }
 
         .typing-cursor {
@@ -166,10 +166,6 @@
         .fade-text {
             transition: opacity 0.5s ease-in-out;
             opacity: 1;
-        }
-
-        .fade-text.hidden {
-            opacity: 0;
         }
 
         .hero-bio {
@@ -226,7 +222,7 @@
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             overflow: hidden;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
         }
 
         .terminal-header {
@@ -258,6 +254,18 @@
             padding: 1.5rem;
             font-size: 0.85rem;
             color: #e2e8f0;
+        }
+
+        /* Preformatted Text Rules for Terminal */
+        .terminal-body pre,
+        .terminal-body code {
+            font-family: 'JetBrains Mono', monospace !important;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
         }
 
         .t-prompt { color: var(--success); }
@@ -328,7 +336,7 @@
             font-size: 0.8rem;
             padding: 0.3rem 0.7rem;
             border-radius: 6px;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
         }
 
         /* Experience Timeline */
@@ -377,7 +385,7 @@
         .exp-date {
             font-size: 0.85rem;
             color: var(--text-muted);
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
             margin-bottom: 1.2rem;
         }
 
@@ -435,7 +443,7 @@
             border-top: 1px solid var(--card-border);
             color: var(--text-muted);
             font-size: 0.9rem;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace !important;
         }
 
         @media (max-width: 900px) {
@@ -510,13 +518,15 @@
                     <p class="t-out">Sahil Jamdar [Java & IAM Engineer]</p>
 
                     <p><span class="t-prompt">➜</span> <span class="t-cmd">cat</span> <span class="t-arg">current_stack.json</span></p>
-                    <p class="t-out">{<br>
-                    &nbsp;&nbsp;"core": ["Java", "Spring Boot", "Microservices"],<br>
-                    &nbsp;&nbsp;"security": ["ForgeRock", "OAuth2.0", "JWT", "OIDC"],<br>
-                    &nbsp;&nbsp;"cloud": ["AWS", "Docker", "Kubernetes"]<br>
-                    }</p>
+                    
+                    <!-- Preformatted JSON Code Block -->
+                    <pre><code class="t-out">{
+  "core": ["Java", "Spring Boot", "Microservices"],
+  "security": ["ForgeRock", "OAuth2.0", "JWT", "OIDC"],
+  "cloud": ["AWS", "Docker", "Kubernetes"]
+}</code></pre>
 
-                    <p><span class="t-prompt">➜</span> <span class="t-cmd">status</span></p>
+                    <p style="margin-top: 0.8rem;"><span class="t-prompt">➜</span> <span class="t-cmd">status</span></p>
                     <p class="t-out" style="color: var(--success);">✔ Operational | Building Enterprise Systems</p>
                 </div>
             </div>
@@ -619,21 +629,21 @@
                     <i class="fa-brands fa-aws info-icon"></i>
                     <div>
                         <h4>AWS Certified Solutions Architect</h4>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">Associate (2024)</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Associate (2024)[cite: 1]</p>
                     </div>
                 </div>
                 <div class="info-card">
                     <i class="fa-brands fa-aws info-icon"></i>
                     <div>
                         <h4>AWS Certified Developer</h4>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">Associate (2025)</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Associate (2025)[cite: 1]</p>
                     </div>
                 </div>
                 <div class="info-card">
                     <i class="fa-solid fa-brain info-icon"></i>
                     <div>
                         <h4>Fundamentals of Agentic AI</h4>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">Business & Ethical Insights (2026)</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Business & Ethical Insights (2026)[cite: 1]</p>
                     </div>
                 </div>
             </div>
@@ -649,14 +659,14 @@
                     <i class="fa-solid fa-laptop-code info-icon"></i>
                     <div>
                         <h4>PG Diploma in Advanced Computing</h4>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">C-DAC</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">C-DAC[cite: 1]</p>
                     </div>
                 </div>
                 <div class="info-card">
                     <i class="fa-solid fa-university info-icon"></i>
                     <div>
                         <h4>Bachelor of Engineering (B.E.)</h4>
-                        <p style="color: var(--text-muted); font-size: 0.85rem;">University of Pune</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">University of Pune[cite: 1]</p>
                     </div>
                 </div>
             </div>
@@ -667,7 +677,7 @@
         <p>&lt;/&gt; Designed & Built by Sahil Jamdar • 2026</p>
     </footer>
 
-    <!-- Script for Skill Items Fade/Typing Animation -->
+    <!-- Script for Skill Items Typing Animation -->
     <script>
         const items = [
             "Java Backend Developer",
@@ -698,12 +708,12 @@
             let typeSpeed = isDeleting ? 40 : 80;
 
             if (!isDeleting && charIndex === currentItem.length) {
-                typeSpeed = 1800; // Pause at end of word
+                typeSpeed = 1800;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 itemIndex = (itemIndex + 1) % items.length;
-                typeSpeed = 400; // Pause before typing next word
+                typeSpeed = 400;
             }
 
             setTimeout(typeEffect, typeSpeed);
